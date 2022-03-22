@@ -51,14 +51,9 @@ class Game
 
         gameOver = false
         until gameOver
-            puts "~~ " * @board.grid.length
-
             pos = self.playable_position
-            puts
 
             @board.place_mark(pos,currentPlayer.mark)
-            @board.print
-            puts
 
             playerWins = @board.win?(currentPlayer.mark)
             if playerWins
