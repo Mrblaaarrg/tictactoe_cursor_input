@@ -6,7 +6,7 @@ class HumanPlayer
         @display = Display.new(board)
     end
 
-    attr_reader :mark
+    attr_reader :mark, :display
 
     def get_position(legal_positions)
         result = nil

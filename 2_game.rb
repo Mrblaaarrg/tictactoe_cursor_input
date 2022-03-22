@@ -54,6 +54,7 @@ class Game
             pos = self.playable_position
 
             @board.place_mark(pos,currentPlayer.mark)
+            @currentPlayer.display.render
 
             playerWins = @board.win?(currentPlayer.mark)
             if playerWins
