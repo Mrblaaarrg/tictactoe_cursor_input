@@ -9,6 +9,11 @@ class Game
     def initialize(size, winning_score, human_num_players, computer_num_players)
         @board = Board.new(size, winning_score)
         @players = []
+        self.player_factory(human_num_players, computer_num_players, board)
+        @currentPlayer = @players.first
+    end
+
+    def player_factory(human_num_players, computer_num_players, board)
         hp = 0
         human_num_players.times do
             hp += 1
@@ -19,7 +24,6 @@ class Game
             cp += 1
             @players << ComputerPlayer.new("c" + (cp).to_s, self.board)
         end
-        @currentPlayer = @players.first
     end
 
     def switch_turn
