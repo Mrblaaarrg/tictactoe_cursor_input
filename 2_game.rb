@@ -49,10 +49,8 @@ class Game
     end
 
     def play
-        puts "Let's play!"
-        puts
-        @board.print
-        puts
+        puts "Select a position to mark!"
+        puts "WASD or arrow keys to move the cursor, enter or space to confirm."
 
         gameOver = false
         until gameOver
