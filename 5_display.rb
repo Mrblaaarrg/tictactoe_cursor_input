@@ -1,5 +1,5 @@
 require "colorize"
-require_relative "cursorable"
+require_relative "4_cursorable"
 
 class Display
   include Cursorable

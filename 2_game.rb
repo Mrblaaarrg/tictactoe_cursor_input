@@ -3,31 +3,24 @@ require_relative "1_human_player"
 require_relative "1.1_computer_player"
 
 class Game
-    def initialize
-        puts "Enter board size:"
-        size = gets.chomp.to_i
-        puts "Enter winning score (up to board size):"
-        winning_score = gets.chomp.to_i
-        puts "Enter number of human players:"
-        human_num_players = gets.chomp.to_i
-        puts "Enter number of computer players:"
-        computer_num_players = gets.chomp.to_i
+
+    attr_reader :players, :board, :currentPlayer
+
+    def initialize(size, winning_score, human_num_players, computer_num_players)
+        @board = Board.new(size, winning_score)
         @players = []
         hp = 0
         human_num_players.times do
             hp += 1
-            @players << HumanPlayer.new("h" + (hp).to_s)
+            @players << HumanPlayer.new("h" + (hp).to_s, self.board)
         end
         cp = 0
         computer_num_players.times do
             cp += 1
-            @players << ComputerPlayer.new("c" + (cp).to_s)
+            @players << ComputerPlayer.new("c" + (cp).to_s, self.board)
         end
-        @board = Board.new(size, winning_score)
         @currentPlayer = @players.first
     end
-
-    attr_reader :players, :board, :currentPlayer
 
     def switch_turn
         @players.rotate!

@@ -1,6 +1,9 @@
+require_relative "5_display"
+
 class HumanPlayer
-    def initialize(mark)
+    def initialize(mark, board)
         @mark = mark
+        @display = Display.new(board)
     end
 
     attr_reader :mark
